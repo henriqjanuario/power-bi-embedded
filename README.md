@@ -1,8 +1,18 @@
 # PowerBiEmbedded
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/power_bi_embedded`. To experiment with that code, run `bin/console` for an interactive prompt.
+Gem to consume Microsoft's PowerBiEmbedded RESTfull API.
 
-TODO: Delete this and the text above, and describe your gem
+The purpose of the methods is to generate tokens for the Power Bi Embedded JS LIB (https://github.com/Microsoft/PowerBI-JavaScript)
+
+## Features
+* Authenticate on Microsoft
+* List Groups
+* List and Get Dashboards
+* List and Get Tiles
+* List and Get Reports
+* Embed Reports
+* Embed Dashboards
+* Embed Tiles
 
 ## Installation
 
@@ -20,15 +30,89 @@ Or install it yourself as:
 
     $ gem install power_bi_embedded
 
+
 ## Usage
 
-TODO: Write usage instructions here
+### Authenticate
 
-## Development
+```ruby
+PowerBiEmbedded::Authenticate.new(username: POWERBI_USERNAME,
+                                  password: POWERBI_PASSWORD,
+                                  refresh_token: REFRESH_TOKEN,
+                                  client_id: CLIENT_ID,
+                                  grant_type: GRANT_TYPE).call
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+### List Groups
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+PowerBiEmbedded::Groups.list(access_token: AUTH_ACCESS_TOKEN)
+```
+
+### List Dashboards
+
+```ruby
+PowerBiEmbedded::Dashboards.list(group_id: GROUP_ID,
+                                 access_token: AUTH_ACCESS_TOKEN)
+```
+
+### Get Dashboard
+
+```ruby
+PowerBiEmbedded::Dashboards.get(group_id: GROUP_ID,
+                                dashboard_id: DASHBOARD_ID,
+                                access_token: AUTH_ACCESS_TOKEN)
+```
+
+### List Tiles
+
+```ruby
+PowerBiEmbedded::Tiles.list(group_id: GROUP_ID,
+                            dashboard_id: DASHBOARD_ID,
+                            access_token: AUTH_ACCESS_TOKEN)
+```
+
+### Get Tile
+
+```ruby
+PowerBiEmbedded::Tiles.get(group_id: GROUP_ID,
+                           dashboard_id: DASHBOARD_ID,
+                           tile_id: TILE_ID,
+                           access_token: AUTH_ACCESS_TOKEN)
+```
+
+### List Reports
+
+```ruby
+PowerBiEmbedded::Reports.list(group_id: GROUP_ID,
+                             access_token: AUTH_ACCESS_TOKEN)
+```
+
+### Get Report
+
+```ruby
+PowerBiEmbedded::Reports.get(group_id: GROUP_ID,
+                             report_id: REPORT_ID,
+                             access_token: AUTH_ACCESS_TOKEN)
+```
+
+## Embed Resource
+[DOC] (https://docs.microsoft.com/pt-br/rest/api/power-bi/embedtoken)
+
+*OBS: "resource" can be "report", "dashboard" or "tile"*
+
+```ruby
+PowerBiEmbedded::EmbedToken.new(access_token: AUTH_ACCESS_TOKEN,
+                                group_id: GROUP_ID,
+                                resource: RESOURCE_NAME,
+                                resource_id: RESOURCE_ID,
+                                tile_id: TILE_ID,
+                                dataset_id: DATASET_ID,
+                                access_level: ACCESS_LEVEL,
+                                identities: IDENTITIES,
+                                allow_save_as: ALLOW_SAVE_AS).call
+```
+
 
 ## Contributing
 
