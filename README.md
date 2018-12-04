@@ -36,11 +36,7 @@ Or install it yourself as:
 ### Authenticate
 
 ```ruby
-PowerBiEmbedded::Authenticate.new(username: POWERBI_USERNAME,
-                                  password: POWERBI_PASSWORD,
-                                  refresh_token: REFRESH_TOKEN,
-                                  client_id: CLIENT_ID,
-                                  grant_type: GRANT_TYPE).call
+PowerBiEmbedded::Authenticate.new(username: POWERBI_USERNAME, password: POWERBI_PASSWORD, refresh_token: REFRESH_TOKEN, client_id: CLIENT_ID, grant_type: GRANT_TYPE).call
 ```
 
 ### List Groups
@@ -52,48 +48,37 @@ PowerBiEmbedded::Groups.list(access_token: AUTH_ACCESS_TOKEN)
 ### List Dashboards
 
 ```ruby
-PowerBiEmbedded::Dashboards.list(group_id: GROUP_ID,
-                                 access_token: AUTH_ACCESS_TOKEN)
+PowerBiEmbedded::Dashboards.list(group_id: GROUP_ID, access_token: AUTH_ACCESS_TOKEN)
 ```
 
 ### Get Dashboard
 
 ```ruby
-PowerBiEmbedded::Dashboards.get(group_id: GROUP_ID,
-                                dashboard_id: DASHBOARD_ID,
-                                access_token: AUTH_ACCESS_TOKEN)
+PowerBiEmbedded::Dashboards.get(group_id: GROUP_ID, dashboard_id: DASHBOARD_ID, access_token: AUTH_ACCESS_TOKEN)
 ```
 
 ### List Tiles
 
 ```ruby
-PowerBiEmbedded::Tiles.list(group_id: GROUP_ID,
-                            dashboard_id: DASHBOARD_ID,
-                            access_token: AUTH_ACCESS_TOKEN)
+PowerBiEmbedded::Tiles.list(group_id: GROUP_ID, dashboard_id: DASHBOARD_ID, access_token: AUTH_ACCESS_TOKEN)
 ```
 
 ### Get Tile
 
 ```ruby
-PowerBiEmbedded::Tiles.get(group_id: GROUP_ID,
-                           dashboard_id: DASHBOARD_ID,
-                           tile_id: TILE_ID,
-                           access_token: AUTH_ACCESS_TOKEN)
+PowerBiEmbedded::Tiles.get(group_id: GROUP_ID, dashboard_id: DASHBOARD_ID, tile_id: TILE_ID, access_token: AUTH_ACCESS_TOKEN)
 ```
 
 ### List Reports
 
 ```ruby
-PowerBiEmbedded::Reports.list(group_id: GROUP_ID,
-                             access_token: AUTH_ACCESS_TOKEN)
+PowerBiEmbedded::Reports.list(group_id: GROUP_ID, access_token: AUTH_ACCESS_TOKEN)
 ```
 
 ### Get Report
 
 ```ruby
-PowerBiEmbedded::Reports.get(group_id: GROUP_ID,
-                             report_id: REPORT_ID,
-                             access_token: AUTH_ACCESS_TOKEN)
+PowerBiEmbedded::Reports.get(group_id: GROUP_ID, report_id: REPORT_ID, access_token: AUTH_ACCESS_TOKEN)
 ```
 
 ## Embed Resource
@@ -102,15 +87,7 @@ PowerBiEmbedded::Reports.get(group_id: GROUP_ID,
 *OBS: "resource" can be "report", "dashboard" or "tile"*
 
 ```ruby
-PowerBiEmbedded::EmbedToken.new(access_token: AUTH_ACCESS_TOKEN,
-                                group_id: GROUP_ID,
-                                resource: RESOURCE_NAME,
-                                resource_id: RESOURCE_ID,
-                                tile_id: TILE_ID,
-                                dataset_id: DATASET_ID,
-                                access_level: ACCESS_LEVEL,
-                                identities: IDENTITIES,
-                                allow_save_as: ALLOW_SAVE_AS).call
+PowerBiEmbedded::EmbedToken.new(access_token: AUTH_ACCESS_TOKEN, group_id: GROUP_ID, resource: RESOURCE_NAME, resource_id: RESOURCE_ID, tile_id: TILE_ID, dataset_id: DATASET_ID, access_level: ACCESS_LEVEL, identities: IDENTITIES, allow_save_as: ALLOW_SAVE_AS).call
 ```
 
 
