@@ -1,6 +1,5 @@
 require 'base64'
 require 'json'
-require 'byebug'
 require 'httparty'
 
 module PowerBiEmbedded
