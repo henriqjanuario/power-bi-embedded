@@ -11,7 +11,6 @@ module PowerBiEmbedded
       @access_level  = access_level
       @identities    = identities
       @allow_save_as = allow_save_as
-      @accessLevel   = accessLevel
     end
 
     def call
