@@ -26,7 +26,7 @@ module PowerBiEmbedded
     end
 
     def self.parse_response(response)
-      response.parsed_response.deep_symbolize_keys
+      response.parsed_response&.deep_symbolize_keys
     end
 
   end
